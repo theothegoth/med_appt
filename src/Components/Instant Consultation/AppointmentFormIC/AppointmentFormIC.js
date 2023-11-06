@@ -4,16 +4,22 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [selectedSlot, setSelectedSlot] = useState(null);
-  
+    const [appointmentDate, setAppointmentDate] = useState(null);
+    
     const handleSlotSelection = (slot) => {
       setSelectedSlot(slot);
     };
+    const handleDateSelection = (date) => {
+        setAppointmentDate(date);
+      };
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ name, phoneNumber,selectedSlot,appointmentDate });
       setName('');
       setPhoneNumber('');
+      setAppointmentDate('');
+      setSelectedSlot('');
     };
   
     return (
@@ -35,6 +41,26 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
             id="phoneNumber"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="appointmentDate">Date of Appointment</label>
+          <input
+            type="date"
+            id="appointmentDate"
+            value={appointmentDate}
+            onChange={(e) => setAppointmentDate(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="selectedSlot">Book Time Slot</label>
+          <input
+            type="time"
+            id="selectedSlot"
+            value={selectedSlot}
+            onChange={(e) => setSelectedSlot(e.target.value)}
             required
           />
         </div>
