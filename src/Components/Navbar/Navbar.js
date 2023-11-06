@@ -84,14 +84,14 @@ const Navbar = () => {
         ) : (
           <>
             <li className="link">
-              <Link to="/signup">
+            <a href="../Sign_Up/Sign_Up.html">
                 <button className="btn1">Sign Up</button>
-              </Link>
+                </a>
             </li>
             <li className="link">
-              <Link to="/login">
-                <button className="btn1">Login</button>
-              </Link>
+            <a href="../Login/Login.html">
+                <button className="btn1">Login</button>  
+                </a>         
             </li>
           </>
         )}
