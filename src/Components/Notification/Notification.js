@@ -6,32 +6,31 @@ const Notification = ({ children }) => {
   const [username, setUsername] = useState("");
   const [doctorData, setDoctorData] = useState(null);
   const [appointmentData, setAppointmentData] = useState(null);
+  const [appointments, setAppointments] = useState([]);
 
   useEffect(() => {
     const storedUsername = sessionStorage.getItem('email');
-    const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-    console.log("storedDoctorData :",storedDoctorData.name);
-    //const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
-    const storedAppointmentData = storedDoctorData;
+    const storedDoctorData = JSON.parse(localStorage.getItem('appointmentData')).doctorName;
+    //console.log("storedDoctorData :",storedDoctorData.name);
+    const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
+
 
     if (storedUsername) {
       setIsLoggedIn(true);
       setUsername(storedUsername);
     }
 
-    if (storedDoctorData) {
-      setDoctorData(storedDoctorData);
-    }
+    if (storedDoctorData) {setDoctorData(storedDoctorData);}
 
     if (storedAppointmentData) {
       setAppointmentData(storedAppointmentData);
     }
-    console.log("storedAppointmentData :",storedAppointmentData);
+    console.log("storedAppointmentData.doctorName :",storedAppointmentData.doctorName);
   }, []);
 
  
 
-//console.log("storedAppointmentData :",storedAppointmentData);
+console.log("doctorData :",doctorData);
 
   return (
     <div>
@@ -43,7 +42,7 @@ const Notification = ({ children }) => {
             <div className="appointment-card__content">
               <h3 className="appointment-card__title">Appointment Details</h3>
               <p className="appointment-card__message">
-                <strong>Doctor:</strong> {doctorData?.name}
+                <strong>Doctor:</strong> {doctorData}
               </p>
             </div>
           </div>
