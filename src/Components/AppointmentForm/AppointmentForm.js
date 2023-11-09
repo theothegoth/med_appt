@@ -3,18 +3,32 @@ import React, { useState } from 'react'
 const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [selectedSlot, setSelectedSlot] = useState(null);
-    const [appointmentDate, setAppointmentDate] = useState(null);
-  
+    const [selectedSlot, setSelectedSlot] = useState('');
+    const [appointmentDate, setAppointmentDate] = useState('');
+    const [appointments, setAppointments] = useState([]);
+
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber,selectedSlot,appointmentDate });
+      const appointmentData = { name, phoneNumber,selectedSlot,appointmentDate,doctorName, doctorSpeciality };
+
+       // Save form data to localStorage
+    //localStorage.setItem('doctorData', JSON.stringify(doctorData));
+    //const test = JSON.parse(localStorage.getItem('doctorData'));
+    //console.log("name",test.name);
+
+    // Call the onSubmit function passed as a prop
+    onSubmit(appointmentData);
+    localStorage.setItem('appointmentData', JSON.stringify(appointmentData));
+    const testitem = JSON.parse(localStorage.getItem('appointmentData'));
+    console.log("testitem:",testitem);
+
       setName('');
       setPhoneNumber('');
       setAppointmentDate('');
       setSelectedSlot('');
     };
-  
+
+
     return (
       <form onSubmit={handleFormSubmit} className="appointment-form">
         <div className="form-group">
