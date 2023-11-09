@@ -9,6 +9,7 @@ import Login from './Components/Login/Login';
 import InstantConsultation from './Components/Instant Consultation/InstantConsultation';
 import FindDoctorSearch from './Components/FindDoctorSearch/FindDoctorSearch';
 import BookingConsultation from './Components/BookingConsultation';
+import Notification from './Components/Notification/Notification';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
           <Navbar/>
+          <Notification>
               <Routes>
               <Route path="/" element={<Landing_Page/>}/>
               <Route path="/Sign_Up/Sign_Up.html" element={<Sign_Up/>}/>
@@ -23,7 +25,7 @@ function App() {
               <Route path="/instant-consultation" element={<InstantConsultation />} />
               <Route path="/search/doctors" element={<FindDoctorSearch />} />
               </Routes>
-            
+              </Notification>
         </BrowserRouter>
        
     </div>
