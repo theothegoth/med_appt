@@ -10,7 +10,9 @@ const Notification = ({ children }) => {
   useEffect(() => {
     const storedUsername = sessionStorage.getItem('email');
     const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-    const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
+    console.log("storedDoctorData :",storedDoctorData.name);
+    //const storedAppointmentData = JSON.parse(localStorage.getItem(storedDoctorData?.name));
+    const storedAppointmentData = storedDoctorData;
 
     if (storedUsername) {
       setIsLoggedIn(true);
@@ -24,12 +26,12 @@ const Notification = ({ children }) => {
     if (storedAppointmentData) {
       setAppointmentData(storedAppointmentData);
     }
+    console.log("storedAppointmentData :",storedAppointmentData);
   }, []);
 
-  console.log(
-    "isLoggedIn :",
-    isLoggedIn
-);
+ 
+
+//console.log("storedAppointmentData :",storedAppointmentData);
 
   return (
     <div>
