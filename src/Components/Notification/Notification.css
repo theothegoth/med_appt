@@ -1,22 +1,24 @@
-.appointment-card {
-    background-color: #f9f9f9;
+
+  .notification-card {
+    background-color: #007bff; /* Blue background color */
+    color: #fff; /* White text color */
     padding: 20px;
-    margin: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
-  .appointment-card__content {
-    text-align: center;
-  }
-  
-  .appointment-card__title {
-    font-size: 24px;
-    color: #333;
+  .notification-title {
+    font-size: 1.5rem;
     margin-bottom: 10px;
   }
   
-  .appointment-card__message {
-    font-size: 18px;
-    color: #555;
+  .notification-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
+  
+  .notification-list li {
+    margin-bottom: 5px;
+  }
+  
