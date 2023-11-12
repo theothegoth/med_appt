@@ -22,9 +22,7 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
         setPhoneNumber('');
         setAppointmentDate('');
         setSelectedSlot('');
-        //console.log("doctorName :",doctorName);
       };
-      //console.log("name :",name);
 
     return (
       <form onSubmit={handleFormSubmit} className="appointment-form">
