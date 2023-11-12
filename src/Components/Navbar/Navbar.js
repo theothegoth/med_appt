@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ProfileForm from '../ProfileCard/ProfileCard';
+import ReportsLayout from '../ReportsLayout/ReportsLayout';
 import "./Navbar.css";
 
 
@@ -91,7 +92,11 @@ const Navbar = () => {
                         <ProfileForm username={username} email={email} />
                     </li>
                 )}
-            
+                  {selectedOption === "Your Reports" && (
+                    <li className="link">
+                <ReportsLayout username={username} email={email}/>
+                    </li>
+            )}
           </>
         ) : (
           <>
