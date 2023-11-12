@@ -7,11 +7,11 @@ import "./Navbar.css";
 
 const Navbar = () => {
     const [click, setClick] = useState(false);
-
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [username, setUsername] = useState("");
-    const[email,setEmail]=useState("");
+    const [email,setEmail]=useState("");
     const [showDropdown, setShowDropdown] = useState(false);
+    const [selectedOption, setSelectedOption] = useState(null);
     const handleClick = () => setClick(!click);
 
     
@@ -20,10 +20,8 @@ const Navbar = () => {
         sessionStorage.removeItem("name");
         sessionStorage.removeItem("email");
         sessionStorage.removeItem("phone");
-        // remove email phone
         localStorage.removeItem("doctorData");
         setIsLoggedIn(false);
-        // setUsername("");
        
         // Remove the reviewFormData from local storage
         for (let i = 0; i < localStorage.length; i++) {
@@ -37,6 +35,10 @@ const Navbar = () => {
     }
     const handleDropdown = () => {
       setShowDropdown(!showDropdown);
+    }
+    const handleDropdownOptionClick = (option) => {
+        setSelectedOption(option);
+        setShowDropdown(false);
     }
     useEffect(() => { 
       const storedemail = sessionStorage.getItem("email");
@@ -75,14 +77,20 @@ const Navbar = () => {
             <div className="nav__user-profile" onClick={handleDropdown}>Welcome,{username.split('@')[0]}
             <i className="fa fa-user"></i>
         {showDropdown && (
-          <ProfileForm username={username} email={email} />
-        )}</div>
+         <div className="dropdown">
+          <div onClick={() => handleDropdownOptionClick("Your Profile")}>Your Profile</div>
+          <div onClick={() => handleDropdownOptionClick("Your Reports")}>Your Reports</div>
+             </div> )}</div>
            </li>
             <li className="link">
               <button className="btn2" onClick={handleLogout}>
                 Logout
               </button>
-            </li>
+            </li> {selectedOption === "Your Profile" && (
+                    <li className="link">
+                        <ProfileForm username={username} email={email} />
+                    </li>
+                )}
             
           </>
         ) : (

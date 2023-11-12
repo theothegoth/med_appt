@@ -132,6 +132,15 @@ return (
            onChange={handleInputChange}
          />
        </label>
+       <label>
+         Email
+         <input
+           type="text"
+           name="email"
+           value={updatedDetails.email}
+           onChange={handleInputChange}
+         />
+       </label>
 <button type="submit">Save</button>
 </form>
 ) : (
