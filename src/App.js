@@ -15,22 +15,23 @@ import GiveReviews from './Components/ReviewForm/ReviewForm';
 function App() {
 
   return (
+    <><meta name="keywords" content="example, website, products, showcase, demonstration"></meta>
     <div className="App">
-        <BrowserRouter>
-          <Navbar/>
-          <Notification>
-              <Routes>
-              <Route path="/" element={<Landing_Page/>}/>
-              <Route path="/Sign_Up/Sign_Up.html" element={<Sign_Up/>}/>
-              <Route path="/Login/Login.html" element={<Login/>}/>
-              <Route path="/instant-consultation" element={<InstantConsultation />} />
-              <Route path="/search/doctors" element={<FindDoctorSearch />} />
-              <Route path="/reviews" element={<GiveReviews />} />
-              </Routes>
+          <BrowserRouter>
+              <Navbar />
+              <Notification>
+                  <Routes>
+                      <Route path="/" element={<Landing_Page />} />
+                      <Route path="/Sign_Up/Sign_Up.html" element={<Sign_Up />} />
+                      <Route path="/Login/Login.html" element={<Login />} />
+                      <Route path="/instant-consultation" element={<InstantConsultation />} />
+                      <Route path="/search/doctors" element={<FindDoctorSearch />} />
+                      <Route path="/reviews" element={<GiveReviews />} />
+                  </Routes>
               </Notification>
-        </BrowserRouter>
-       
-    </div>
+          </BrowserRouter>
+
+      </div></>
   );
 }
 
